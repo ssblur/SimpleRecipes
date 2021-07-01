@@ -14,7 +14,7 @@
                     <div class="card w-100 m-1">
                         <div class="card-body">
                             <h5 class="card-title">
-                                @Html.DisplayFor(modelItem => item.Title)
+                                <a asp-controller="Recipes" asp-action="Details" asp-route-id="@item.ID">@Html.DisplayFor(modelItem => item.Title)</a>
                             </h5>
                             <p class="card-text">
                                 <img src="@item.Image" class="bounded-image" />
