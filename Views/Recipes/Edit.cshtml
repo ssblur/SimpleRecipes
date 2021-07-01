@@ -1,0 +1,44 @@
+﻿@model WebRecipes.Models.Recipe
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Recipe</h1>
+<hr />
+<div class="row">
+    <div class="col-12">
+        <form asp-action="Edit" id="form">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <small>(Feel free to paste or drag-n-drop images)</small>
+                <div id="quill">@Html.Raw(Model.Contents)</div>
+                <input asp-for="Contents" type="hidden" id="quillInput" class="form-control" />
+                <span asp-validation-for="Contents" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Styles {
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/quill/quill.min.js"></script>
+    <script src="~/js/quillCompat.js"></script>
+}

@@ -1,0 +1,20 @@
+﻿@model WebRecipes.Models.Recipe
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div>
+    <dl class="row">
+        <div class="col-8 col-md-10">
+            <h1>@Model.Title</h1>
+        </div>
+        <div class="col-4 col-md-2">
+            <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a>
+        </div>
+        <div clas="col-12 border-dark border-bottom"></div>
+        <div class="col-12">
+            @Html.Raw(Model.Contents)
+        </div>
+    </dl>
+</div>
