@@ -1,8 +1,37 @@
-﻿@{
+﻿@model IEnumerable<WebRecipes.Models.Recipe>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Enjoy Simple Recipes!</h1>
     <p>Check out our most recent recipes below, or all of our recipes by clicking on the <a asp-area="" asp-controller="Recipes" asp-action="Index">Recipes</a> link above.</p>
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model) {
+                <div class="col-12 col-md-6">
+                    <div class="card w-100 m-1">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </h5>
+                            <p class="card-text">
+                                <img src="@item.Image" class="bounded-image" />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
 </div>
+
+@section Styles {
+    <style>
+        .bounded-image {
+            max-width: 100%;
+            max-height: 300px;
+        }
+    </style>
+}

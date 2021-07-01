@@ -4,5 +4,6 @@ $(() => quill = new Quill('#quill', {
 }));
 
 $("#form").on("submit", () => {
+    $('#quillImage').val($("#quill > .ql-editor > * > img, image").first().attr('src'));
     $("#quillInput").val($("#quill > .ql-editor").html());
 });

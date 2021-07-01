@@ -20,6 +20,7 @@
                 <small>(Feel free to paste or drag-n-drop images)</small>
                 <div id="quill">@Html.Raw(Model.Contents)</div>
                 <input asp-for="Contents" type="hidden" id="quillInput" class="form-control" />
+                <input asp-for="Image" type="hidden" id="quillImage" class="form-control" />
                 <span asp-validation-for="Contents" class="text-danger"></span>
             </div>
             <div class="form-group">

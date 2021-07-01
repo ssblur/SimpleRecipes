@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebRecipes.Data;
 using WebRecipes.Models;
@@ -54,7 +51,7 @@ namespace WebRecipes.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Title,Contents")] Recipe recipe)
+        public async Task<IActionResult> Create([Bind("ID,Title,Contents,Image")] Recipe recipe)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +83,7 @@ namespace WebRecipes.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Title,Contents")] Recipe recipe)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Title,Contents,Image")] Recipe recipe)
         {
             if (id != recipe.ID)
             {
